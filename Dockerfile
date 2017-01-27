@@ -3,6 +3,7 @@ FROM node:4.7.2
 # Update and Install Packages
 RUN apt-get update -y && apt-get install -y \
     ant \
+    gawk \
     git \
     openssh-client \
     && rm -rf /var/lib/apt/lists/*
