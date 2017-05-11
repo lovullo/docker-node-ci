@@ -1,4 +1,4 @@
-FROM node:4.7.2
+FROM node:4.8.3
 
 # Update and Install Packages
 RUN apt-get update -y && apt-get install -y \
