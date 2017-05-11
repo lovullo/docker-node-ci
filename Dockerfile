@@ -3,11 +3,20 @@ FROM node:4.7.2
 # Update and Install Packages
 RUN apt-get update -y && apt-get install -y \
     ant \
+    apt-transport-https \
+    curl \
     gawk \
     git \
     locales \
     openssh-client \
     && rm -rf /var/lib/apt/lists/*
+
+# Install yarn apt repo
+RUN curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add - && \
+    echo "deb https://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/sources.list.d/yarn.list
+
+# Install yarn
+RUN apt-get update -y && apt-get install -y yarn
 
 # Install Ant libraries
 RUN curl -O http://dl.google.com/closure-compiler/compiler-20161201.tar.gz && \
