@@ -18,6 +18,9 @@ RUN curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add - && \
 # Install yarn
 RUN apt-get update -y && apt-get install -y yarn
 
+# Install node-gyp
+RUN yarn global add node-gyp 
+
 # Install Ant libraries
 RUN curl -O http://dl.google.com/closure-compiler/compiler-20161201.tar.gz && \
     tar -xzvf compiler-20161201.tar.gz closure-compiler-v20161201.jar && \
